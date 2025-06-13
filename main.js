@@ -772,27 +772,15 @@ const modelId = modelIdView.getAttribute('modelId');
     );
 
     // const canvas = document.getElementById("canvas");
-let renderer;
 const canvas = document.createElement('canvas');
 canvas.id = 'canvas';
 
 const videoPointCloud = document.getElementById('videoPointCloud');
 const renderDivParent = document.getElementById('renderDivParent');
-            // renderDivParent.style.width = window.innerWidth;
-            // renderDivParent.style.height = window.innerHeight + "px";
-
-            // Create renderer
-            renderer = new SPLAT.WebGLRenderer(canvas);
-            // renderer.setPixelRatio(window.devicePixelRatio);
-            //renderer.setSize(getSceneWidth(), getSceneHeight());
-renderer.setSize(1024,576);
-
 
             // Set width and height
 const renderDiv = document.createElement('div');
 renderDiv.id =  'renderDiv';
-// renderDiv.style.width = renderDivParent.clientWidth + "px";
-            // renderDiv.style.height = window.innerHeight / 2 + "px";
 
 	// Create the camera slider
 var slider = document.createElement("input");
@@ -852,40 +840,15 @@ const progressDialog = document.createElement('dialog');
 progressDialog.id = 'progress-dialog';
 progressDialog.setAttribute('open', '');
 
-// Create the paragraph element
-// const paragraph = document.createElement('p');
-// Create the label element
-// const label = document.createElement('label');
-// label.setAttribute('for', 'progress-indicator');
-// label.textContent = 'Loading scene...';
-
-// Append label to paragraph
-// paragraph.appendChild(label);
-
 // Create the progress element
 const progressIndicator = document.createElement('progress');
 progressIndicator.id = 'progress-indicator';
 progressIndicator.max = 100;
-
-// Append paragraph and progress to dialog
-// progressDialog.appendChild(paragraph);
 progressDialog.appendChild(progressIndicator);
-
-// Append dialog to container
 progressContainer.appendChild(progressDialog);
 
 
-// **
-// Append elements to parent element
-// **
-            // renderDiv.appendChild(renderer.domElement);
-            renderDiv.appendChild(canvas);
-            renderDiv.appendChild(progressContainer);
-            renderDiv.appendChild(slider);
-            renderDiv.appendChild(loadingOverlayDiv);
-renderDivParent.appendChild(renderDiv);
-
-
+	// handle 3d model by new viewer
     const fps = document.getElementById("fps");
     const camid = document.getElementById("camid");
 
@@ -1589,6 +1552,16 @@ renderDivParent.appendChild(renderDiv);
         }
     }
 }
+
+// **
+// Append elements to parent element
+// **
+// renderDiv.appendChild(renderer.domElement);
+renderDiv.appendChild(canvas);
+renderDiv.appendChild(progressContainer);
+renderDiv.appendChild(slider);
+renderDiv.appendChild(loadingOverlayDiv);
+renderDivParent.appendChild(renderDiv);
 
 main().catch((err) => {
     document.getElementById("spinner").style.display = "none";
