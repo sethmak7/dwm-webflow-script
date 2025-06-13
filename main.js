@@ -1591,6 +1591,6 @@ renderDivParent.appendChild(renderDiv);
 }
 
 main().catch((err) => {
-    //document.getElementById("spinner").style.display = "none";
-    //document.getElementById("message").innerText = err.toString();
+    document.getElementById("spinner").style.display = "none";
+    document.getElementById("message").innerText = err.toString();
 });
